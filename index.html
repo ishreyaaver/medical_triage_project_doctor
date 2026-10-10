@@ -156,30 +156,147 @@
 </head>
 <body>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digi Janseva - Doctor Portal</title>
+    <style>
+        :root {
+            --primary-color: #0284c7;
+            --secondary-color: #0ea5e9;
+            --bg-color: #f8fafc;
+            --text-color: #1e293b;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            width: 100%;
+            max-width: 450px;
+        }
+
+        .header {
+            background: var(--primary-color);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--text-color);
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 16px;
+            transition: border-color 0.2s;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        button:hover {
+            background: var(--secondary-color);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
     <div class="header">
         <h1>Digi Janseva Dashboard</h1>
-        <div>Dr. Sharma | <span style="background: #22c55e; padding: 4px 8px; border-radius: 4px; font-size: 12px;">Verified</span></div>
     </div>
 
-    <div class="card-container">
-        <div class="card">
-            <h3>Doctor Profile & Database</h3>
-            <p><strong>Name:</strong> Dr. Ananya Sharma</p>
-            <p><strong>Contact:</strong> +91 9876543210</p>
-            <p><strong>Reg. Number:</strong> MCI-2026-8899</p>
-            <p><strong>Qualifications:</strong> MBBS, MD (Cardiology)</p>
-            <p><strong>Specialization:</strong> Cardiology</p>
-            <p><strong>Consultation Fee:</strong> ₹500</p>
-            <p><strong>Availability:</strong> Mon - Fri (10:00 AM - 2:00 PM)</p>
+    <form id="doctorProfileForm">
+        <div class="form-group">
+            <label for="doctorName">Doctor Name:</label>
+            <input type="text" id="doctorName" placeholder="Enter full name">
         </div>
 
-        <div class="card">
-            <h3>Security & Admin Status</h3>
-            <p><strong>Account Status:</strong> Active & Approved</p>
-            <p><strong>Access Logs:</strong> Last login today at 10:30 AM</p>
-            <p><strong>Data Consent:</strong> Verified compliant with medical privacy standards.</p>
+        <div class="form-group">
+            <label for="contact">Contact Number:</label>
+            <input type="tel" id="contact" placeholder="+91">
         </div>
-    </div>
+
+        <div class="form-group">
+            <label for="regNumber">Registration Number:</label>
+            <input type="text" id="regNumber" placeholder="MCI-XXXX-XXXX">
+        </div>
+
+        <div class="form-group">
+            <label for="qualifications">Qualifications:</label>
+            <input type="text" id="qualifications" placeholder="MBBS, MD...">
+        </div>
+
+        <div class="form-group">
+            <label for="specialization">Specialization:</label>
+            <input type="text" id="specialization" placeholder="Cardiology">
+        </div>
+
+        <div class="form-group">
+            <label for="fee">Consultation Fee:</label>
+            <input type="number" id="fee" placeholder="₹">
+        </div>
+
+        <div class="form-group">
+            <label for="availability">Availability:</label>
+            <input type="text" id="availability" placeholder="Mon - Fri (10:00 AM - 2:00 PM)">
+        </div>
+
+        <button type="submit">Save Profile</button>
+    </form>
+</div>
 
 </body>
 </html>
