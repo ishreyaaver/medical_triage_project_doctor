@@ -390,3 +390,174 @@
 
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Dashboard - Slide-wise</title>
+    <style>
+        :root {
+            --primary-color: #0284c7;
+            --bg-color: #f8fafc;
+            --text-color: #1e293b;
+            --card-bg: #ffffff;
+            --border-color: #cbd5e1;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .slide-container {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            width: 100%;
+            max-width: 500px;
+            border: 1px solid var(--border-color);
+        }
+
+        .step {
+            display: none;
+        }
+
+        .step.active {
+            display: block;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            margin-top: 0;
+            margin-bottom: 25px;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        .button-group {
+            margin-top: 25px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        button {
+            padding: 12px 20px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        button:disabled {
+            background: #94a3b8;
+            cursor: not-allowed;
+        }
+
+        .appointment-item {
+            border-bottom: 1px solid var(--border-color);
+            padding: 15px 0;
+        }
+
+        .appointment-item:last-child {
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="slide-container">
+    <!-- Step 1: Doctor Profile -->
+    <div class="step active" id="step1">
+        <h2>Doctor Profile</h2>
+        <form id="profileForm">
+            <div class="form-group">
+                <label>Doctor Name:</label>
+                <input type="text" placeholder="Enter full name">
+            </div>
+            <div class="form-group">
+                <label>Contact Number:</label>
+                <input type="text" placeholder="Enter contact number">
+            </div>
+            <div class="form-group">
+                <label>Registration Number:</label>
+                <input type="text" placeholder="Enter registration number">
+            </div>
+            <div class="form-group">
+                <label>Specialization:</label>
+                <input type="text" placeholder="Enter specialization">
+            </div>
+            <div class="form-group">
+                <label>Consultation Fee:</label>
+                <input type="text" placeholder="Enter fee">
+            </div>
+            <div class="form-group">
+                <label>Availability Timing:</label>
+                <input type="text" placeholder="Enter timing">
+            </div>
+        </form>
+        <div class="button-group">
+            <button disabled>Previous</button>
+            <button onclick="nextStep(2)">Next</button>
+        </div>
+    </div>
+
+    <!-- Step 2: Patient Appointments -->
+    <div class="step" id="step2">
+        <h2>Patient Appointments</h2>
+        <div class="appointment-item">
+            <strong>Patient:</strong> Rahul Verma <br>
+            <strong>Time:</strong> 10 Oct 2026, 11:00 AM <br>
+            <strong>Triage:</strong> Mild chest discomfort
+        </div>
+        <div class="appointment-item">
+            <strong>Patient:</strong> Priya Singh <br>
+            <strong>Time:</strong> 10 Oct 2026, 12:30 PM <br>
+            <strong>Triage:</strong> Severe breathlessness
+        </div>
+        <div class="button-group">
+            <button onclick="nextStep(1)">Previous</button>
+            <button disabled>Next</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    function nextStep(stepNumber) {
+        document.querySelectorAll('.step').forEach(step => step.classList.remove('active'));
+        document.getElementById('step' + stepNumber).classList.add('active');
+    }
+</script>
+
+</body>
+</html>
