@@ -5,94 +5,80 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Appointments & Patient Records - Health Mate</title>
     <style>
-        :root {
-            --primary-color: #0284c7;
-            --bg-color: #f0f9ff;
-            --card-bg: #ffffff;
-            --text-color: #1e293b;
-            --border-color: #bae6fd;
-            --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
-        }
-
+        * { box-sizing: border-box; }
         body {
             font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
+            background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+            color: #1e293b;
             margin: 0;
-            padding: 30px;
+            padding: 40px 20px;
+            min-height: 100vh;
         }
-
         .container {
-            max-width: 1000px;
+            max-width: 1050px;
             margin: 0 auto;
-            background-color: var(--card-bg);
+            background: #ffffff;
             padding: 40px;
-            border-radius: 16px;
-            box-shadow: var(--shadow);
-            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            box-shadow: 0 20px 35px rgba(2, 132, 199, 0.1);
+            border: 1px solid #bae6fd;
         }
-
         h2 {
-            color: var(--primary-color);
+            color: #0284c7;
             margin-top: 0;
             margin-bottom: 25px;
             text-align: center;
+            font-size: 28px;
         }
-
         .section {
             margin-bottom: 30px;
             padding: 25px;
-            background-color: #f8fafc;
-            border-radius: 12px;
+            background: #f8fafc;
+            border-radius: 14px;
             border: 1px solid #e2e8f0;
         }
-
         .section h3 {
             margin-top: 0;
-            color: var(--primary-color);
+            color: #0369a1;
             font-size: 18px;
             margin-bottom: 15px;
-            border-bottom: 2px solid var(--border-color);
+            border-bottom: 2px solid #bae6fd;
             padding-bottom: 8px;
         }
-
         table {
             width: 100%;
             border-collapse: collapse;
             margin-top: 10px;
-            background-color: #ffffff;
-            border-radius: 8px;
+            background: #ffffff;
+            border-radius: 10px;
             overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
         }
-
         th, td {
             text-align: left;
-            padding: 12px 15px;
+            padding: 14px 16px;
             border-bottom: 1px solid #e2e8f0;
             font-size: 14px;
         }
-
         th {
             background-color: #bae6fd;
             color: #0369a1;
-            font-weight: 600;
+            font-weight: 700;
         }
-
         tr:hover {
             background-color: #f1f5f9;
         }
-
-        /* Risk Level Badges */
         .badge {
-            padding: 5px 10px;
+            padding: 6px 12px;
             border-radius: 20px;
             font-size: 12px;
-            font-weight: 600;
+            font-weight: 700;
             display: inline-block;
+            text-transform: uppercase;
         }
-        .badge-high { background-color: #fee2e2; color: #dc2626; }
-        .badge-medium { background-color: #fef3c7; color: #d97706; }
-        .badge-normal { background-color: #d1fae5; color: #059669; }
+        .badge-high { background-color: #fee2e2; color: #dc2626; border: 1px solid #fecaca; }
+        .badge-medium { background-color: #fef3c7; color: #d97706; border: 1px solid #fde68a; }
+        .badge-normal { background-color: #d1fae5; color: #059669; border: 1px solid #a7f3d0; }
 
         .btn-container {
             display: flex;
@@ -100,39 +86,34 @@
             align-items: center;
             margin-top: 30px;
         }
-
         button {
             padding: 12px 24px;
-            background-color: var(--primary-color);
+            background: linear-gradient(135deg, #0284c7, #0369a1);
             color: white;
             border: none;
-            border-radius: 8px;
+            border-radius: 10px;
             cursor: pointer;
             font-size: 15px;
             font-weight: 600;
-            transition: background 0.3s;
+            transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
         }
-
         button:hover {
-            background-color: #0369a1;
+            transform: translateY(-2px);
+            background: linear-gradient(135deg, #0369a1, #075985);
         }
-
         .back-btn {
-            background-color: #64748b;
+            background: linear-gradient(135deg, #64748b, #475569);
+            box-shadow: 0 4px 12px rgba(100, 116, 139, 0.3);
         }
-
-        .back-btn:hover {
-            background-color: #475569;
-        }
-
         .video-btn {
-            background-color: #059669;
+            background: linear-gradient(135deg, #059669, #047857);
+            box-shadow: 0 4px 12px rgba(5, 150, 105, 0.3);
+            padding: 6px 12px;
+            font-size: 12px;
         }
-        .video-btn:hover {
-            background-color: #047857;
-        }
-
-        /* Popup Modal CSS */
+        
+        /* Modal Popup */
         .modal {
             display: none;
             position: fixed;
@@ -141,30 +122,29 @@
             top: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0,0,0,0.5);
+            background-color: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(5px);
             justify-content: center;
             align-items: center;
         }
-
         .modal-content {
             background-color: white;
-            padding: 30px;
-            border-radius: 12px;
-            width: 400px;
+            padding: 35px;
+            border-radius: 16px;
+            width: 420px;
             text-align: center;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.25);
         }
-
         .modal-content h3 {
-            color: var(--primary-color);
+            color: #0284c7;
             margin-top: 0;
         }
-
         .close-btn {
-            background-color: #dc2626;
+            background: linear-gradient(135deg, #dc2626, #b91c1c);
             margin-top: 15px;
-            padding: 8px 16px;
+            padding: 10px 20px;
             font-size: 14px;
+            box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
         }
     </style>
 </head>
@@ -173,7 +153,7 @@
 <div class="container">
     <h2>Doctor & Patient Management Portal</h2>
     
-    <!-- Appointments & Patient Triage Section -->
+    <!-- Triage Section -->
     <div class="section">
         <h3>📅 Patient Appointments & AI Risk Triage</h3>
         <table>
@@ -192,27 +172,27 @@
                     <td>2026-10-15 (10:00 AM)</td>
                     <td><span class="badge badge-high">High Risk</span></td>
                     <td>Confirmed</td>
-                    <td><button class="video-btn" style="padding: 6px 12px; font-size: 12px;" onclick="openModal()">Video Call</button></td>
+                    <td><button class="video-btn" onclick="openModal()">Video Call</button></td>
                 </tr>
                 <tr>
                     <td>Sunita Devi</td>
                     <td>2026-10-15 (11:00 AM)</td>
                     <td><span class="badge badge-medium">Medium Risk</span></td>
                     <td>Pending</td>
-                    <td><button class="video-btn" style="padding: 6px 12px; font-size: 12px;" onclick="openModal()">Video Call</button></td>
+                    <td><button class="video-btn" onclick="openModal()">Video Call</button></td>
                 </tr>
                 <tr>
                     <td>Amit Sharma</td>
                     <td>2026-10-15 (12:00 PM)</td>
                     <td><span class="badge badge-normal">Normal</span></td>
                     <td>Confirmed</td>
-                    <td><button class="video-btn" style="padding: 6px 12px; font-size: 12px;" onclick="openModal()">Video Call</button></td>
+                    <td><button class="video-btn" onclick="openModal()">Video Call</button></td>
                 </tr>
             </tbody>
         </table>
     </div>
 
-    <!-- Reports & Prescriptions Section -->
+    <!-- Prescriptions -->
     <div class="section">
         <h3>📋 Reports & Prescriptions</h3>
         <table>
@@ -235,7 +215,7 @@
         </table>
     </div>
 
-    <!-- Payment Status Section -->
+    <!-- Payment Records -->
     <div class="section">
         <h3>💳 Payment Records</h3>
         <table>
@@ -258,20 +238,20 @@
         </table>
     </div>
 
-    <!-- Navigation Buttons -->
+    <!-- Navigation -->
     <div class="btn-container">
         <button class="back-btn" type="button" onclick="window.location.href='dashboard.html'">Back to Dashboard</button>
         <button type="button">Add New Record</button>
     </div>
 </div>
 
-<!-- Video Consultation Popup Modal -->
+<!-- Video Consultation Modal -->
 <div id="videoModal" class="modal">
     <div class="modal-content">
         <h3>Video Consultation</h3>
         <p>Connecting securely with the patient...</p>
-        <div style="margin: 20px 0; background: #000; color: #fff; padding: 40px; border-radius: 8px;">
-            [ Live Video Stream Box ]
+        <div style="margin: 20px 0; background: #0f172a; color: #38bdf8; padding: 40px; border-radius: 10px; font-weight: 600;">
+            [ Live Video Stream Box Active ]
         </div>
         <button class="close-btn" onclick="closeModal()">End / Close Call</button>
     </div>
