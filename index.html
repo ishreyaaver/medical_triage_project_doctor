@@ -107,3 +107,79 @@
 
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digi Janseva - Doctor Dashboard</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8fafc;
+            margin: 0;
+            padding: 20px;
+            color: #1e293b;
+        }
+        .header {
+            background: #0284c7;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .card-container {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        h3 {
+            color: #0284c7;
+            margin-top: 0;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Digi Janseva Dashboard</h1>
+        <div>Dr. Sharma | <span style="background: #22c55e; padding: 4px 8px; border-radius: 4px; font-size: 12px;">Verified</span></div>
+    </div>
+
+    <div class="card-container">
+        <div class="card">
+            <h3>Doctor Profile & Database</h3>
+            <p><strong>Name:</strong> Dr. Ananya Sharma</p>
+            <p><strong>Contact:</strong> +91 9876543210</p>
+            <p><strong>Reg. Number:</strong> MCI-2026-8899</p>
+            <p><strong>Qualifications:</strong> MBBS, MD (Cardiology)</p>
+            <p><strong>Specialization:</strong> Cardiology</p>
+            <p><strong>Consultation Fee:</strong> ₹500</p>
+            <p><strong>Availability:</strong> Mon - Fri (10:00 AM - 2:00 PM)</p>
+        </div>
+
+        <div class="card">
+            <h3>Security & Admin Status</h3>
+            <p><strong>Account Status:</strong> Active & Approved</p>
+            <p><strong>Access Logs:</strong> Last login today at 10:30 AM</p>
+            <p><strong>Data Consent:</strong> Verified compliant with medical privacy standards.</p>
+        </div>
+    </div>
+
+</body>
+</html>
