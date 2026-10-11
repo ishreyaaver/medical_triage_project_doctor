@@ -8,7 +8,8 @@
         * { box-sizing: border-box; }
         body {
             font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-            background: linear-gradient(135deg, #e6f4f8, #c7e5ed);
+            background: linear-gradient(135deg, #d8f3dc, #b7e4c7, #95d5b2, #74c69d);
+            background: #e2f2f5;
             height: 100vh;
             margin: 0;
             display: flex;
@@ -18,39 +19,59 @@
             overflow: hidden;
         }
 
-        /* Background Circuit Lines Effect (Neumorphic tech medical vibe) */
-        body::before, body::after {
-            content: "";
+        /* Background Medical Circuit Lines (Exact Match to your screenshot design) */
+        .bg-design {
             position: absolute;
-            top: 0; bottom: 0;
-            width: 40%;
-            background-repeat: no-repeat;
-            background-size: contain;
-            opacity: 0.35;
-            z-index: 1;
-        }
-        body::before {
+            top: 0;
             left: 0;
-            background-image: radial-gradient(circle, #0284c7 1px, transparent 1px);
-            background-size: 30px 30px;
-        }
-        body::after {
-            right: 0;
-            background-image: radial-gradient(circle, #0284c7 1px, transparent 1px);
-            background-size: 30px 30px;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+            opacity: 0.65;
+            background-image: 
+                radial-gradient(circle at 20% 30%, #38bdf8 2px, transparent 2px),
+                radial-gradient(circle at 80% 70%, #0284c7 2px, transparent 2px),
+                radial-gradient(circle at 40% 80%, #0d9488 2px, transparent 2px),
+                radial-gradient(circle at 75% 20%, #0284c7 2px, transparent 2px);
+            background-size: 100px 100px;
         }
 
+        /* SVG Decorative Circuit Lines on Left and Right */
+        .circuit-left, .circuit-right {
+            position: absolute;
+            top: 0;
+            height: 100%;
+            width: 35%;
+            z-index: 1;
+            opacity: 0.55;
+            pointer-events: none;
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+        .circuit-left {
+            left: 0;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 800'%3E%3Cpath d='M0,150 Q100,150 150,200 T300,250' fill='none' stroke='%230284c7' stroke-width='2'/%3E%3Cpath d='M0,300 Q80,300 120,400 T250,500' fill='none' stroke='%230d9488' stroke-width='1.5'/%3E%3Cpath d='M0,450 Q150,450 200,300 T350,150' fill='none' stroke='%2338bdf8' stroke-width='2'/%3E%3Cpath d='M0,600 Q120,600 180,500 T300,400' fill='none' stroke='%230284c7' stroke-width='1.5'/%3E%3C/svg%3E");
+            background-position: left center;
+        }
+        .circuit-right {
+            right: 0;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 800'%3E%3Cpath d='M400,150 Q300,150 250,200 T100,250' fill='none' stroke='%230284c7' stroke-width='2'/%3E%3Cpath d='M400,300 Q320,300 280,400 T150,500' fill='none' stroke='%230d9488' stroke-width='1.5'/%3E%3Cpath d='M400,450 Q250,450 200,300 T50,150' fill='none' stroke='%2338bdf8' stroke-width='2'/%3E%3Cpath d='M400,600 Q280,600 220,500 T100,400' fill='none' stroke='%230284c7' stroke-width='1.5'/%3E%3C/svg%3E");
+            background-position: right center;
+        }
+
+        /* Login Card Box */
         .login-card {
-            background: #f0f4f8;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(10px);
             padding: 40px;
             border-radius: 20px;
-            box-shadow: 15px 15px 30px rgba(163, 177, 198, 0.6), 
-                        -15px -15px 30px rgba(255, 255, 255, 0.8);
+            box-shadow: 0 20px 40px rgba(2, 132, 199, 0.15), 
+                        0 0 0 1px rgba(255, 255, 255, 0.8) inset;
             width: 100%;
             max-width: 420px;
             position: relative;
-            z-index: 2;
-            border: 1px solid rgba(255, 255, 255, 0.6);
+            z-index: 10;
         }
 
         .logo-area {
@@ -59,10 +80,10 @@
         }
 
         .logo-area svg {
-            width: 40px;
-            height: 40px;
-            fill: #0f172a;
-            margin-bottom: 5px;
+            width: 36px;
+            height: 36px;
+            fill: #1e293b;
+            margin-bottom: 8px;
         }
 
         h2 {
@@ -79,7 +100,7 @@
             font-size: 12px;
             margin-top: 4px;
             margin-bottom: 25px;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.3px;
         }
 
         .form-group {
@@ -104,26 +125,25 @@
             top: 50%;
             transform: translateY(-50%);
             color: #64748b;
-            font-size: 16px;
+            font-size: 15px;
         }
 
         input[type="email"], input[type="password"] {
             width: 100%;
             padding: 12px 14px 12px 42px;
-            background: #e2e8f0;
-            border: none;
+            background: #f8fafc;
+            border: 1px solid #cbd5e1;
             border-radius: 8px;
             font-size: 14px;
             color: #1e293b;
-            box-shadow: inset 3px 3px 6px rgba(163, 177, 198, 0.4), 
-                        inset -3px -3px 6px rgba(255, 255, 255, 0.9);
             transition: all 0.3s ease;
         }
 
         input:focus {
             outline: none;
-            box-shadow: inset 4px 4px 8px rgba(163, 177, 198, 0.6), 
-                        inset -4px -4px 8px rgba(255, 255, 255, 1);
+            border-color: #0284c7;
+            background: #ffffff;
+            box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
         }
 
         .extra-options {
@@ -170,54 +190,59 @@
             cursor: pointer;
             font-size: 15px;
             font-weight: 600;
-            box-shadow: 0 6px 15px rgba(2, 132, 199, 0.4);
+            box-shadow: 0 6px 15px rgba(2, 132, 199, 0.35);
             transition: all 0.3s ease;
         }
 
         button:hover {
             background: linear-gradient(135deg, #0369a1, #075985);
             transform: translateY(-1px);
-            box-shadow: 0 8px 20px rgba(2, 132, 199, 0.5);
+            box-shadow: 0 8px 20px rgba(2, 132, 199, 0.45);
         }
     </style>
 </head>
 <body>
 
-<div class="login-card">
-    <div class="logo-area">
-        <!-- Medical Caduceus / Cross Icon -->
-        <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg>
-        <h2>Digi Janseva</h2>
-        <div class="subtitle">Doctor Portal Secure Login</div>
+    <!-- Background Design Elements matching screenshot -->
+    <div class="bg-design"></div>
+    <div class="circuit-left"></div>
+    <div class="circuit-right"></div>
+
+    <div class="login-card">
+        <div class="logo-area">
+            <!-- Medical Caduceus / Cross Icon -->
+            <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg>
+            <h2>Digi Janseva</h2>
+            <div class="subtitle">Doctor Portal Secure Login</div>
+        </div>
+
+        <form id="loginForm" onsubmit="handleLogin(event)">
+            <div class="form-group">
+                <label>Email Address</label>
+                <div class="input-box">
+                    <span>✉</span>
+                    <input type="email" id="email" placeholder="doctor@gmail.com" value="doctor@gmail.com">
+                </div>
+                <div id="emailError" class="error-msg">Please enter a valid email address.</div>
+            </div>
+
+            <div class="form-group">
+                <label>Password</label>
+                <div class="input-box">
+                    <span>🔒</span>
+                    <input type="password" id="password" placeholder="••••••••" value="123456">
+                </div>
+                <div id="passError" class="error-msg">Password is required.</div>
+            </div>
+
+            <div class="extra-options">
+                <label><input type="checkbox" checked> Remember Me</label>
+                <a href="#">Forgot Password?</a>
+            </div>
+
+            <button type="submit">Confirm & Login to Dashboard</button>
+        </form>
     </div>
-
-    <form id="loginForm" onsubmit="handleLogin(event)">
-        <div class="form-group">
-            <label>Email Address</label>
-            <div class="input-box">
-                <span>✉</span>
-                <input type="email" id="email" placeholder="doctor@gmail.com" value="doctor@gmail.com">
-            </div>
-            <div id="emailError" class="error-msg">Please enter a valid email address.</div>
-        </div>
-
-        <div class="form-group">
-            <label>Password</label>
-            <div class="input-box">
-                <span>🔒</span>
-                <input type="password" id="password" placeholder="••••••••" value="123456">
-            </div>
-            <div id="passError" class="error-msg">Password is required.</div>
-        </div>
-
-        <div class="extra-options">
-            <label><input type="checkbox" checked> Remember Me</label>
-            <a href="#">Forgot Password?</a>
-        </div>
-
-        <button type="submit">Confirm & Login to Dashboard</button>
-    </form>
-</div>
 
 <script>
     function handleLogin(event) {
