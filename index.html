@@ -8,8 +8,7 @@
         * { box-sizing: border-box; }
         body {
             font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-            background: linear-gradient(135deg, #d8f3dc, #b7e4c7, #95d5b2, #74c69d);
-            background: #e2f2f5;
+            background: linear-gradient(135deg, #e0f2fe, #bae6fd, #7dd3fc);
             height: 100vh;
             margin: 0;
             display: flex;
@@ -19,8 +18,8 @@
             overflow: hidden;
         }
 
-        /* Background Medical Circuit Lines (Exact Match to your screenshot design) */
-        .bg-design {
+        /* Detailed Medical & Neural Network Background SVG Container */
+        .bg-neural-network {
             position: absolute;
             top: 0;
             left: 0;
@@ -28,50 +27,22 @@
             height: 100%;
             z-index: 1;
             pointer-events: none;
-            opacity: 0.65;
-            background-image: 
-                radial-gradient(circle at 20% 30%, #38bdf8 2px, transparent 2px),
-                radial-gradient(circle at 80% 70%, #0284c7 2px, transparent 2px),
-                radial-gradient(circle at 40% 80%, #0d9488 2px, transparent 2px),
-                radial-gradient(circle at 75% 20%, #0284c7 2px, transparent 2px);
-            background-size: 100px 100px;
+            opacity: 0.85;
         }
 
-        /* SVG Decorative Circuit Lines on Left and Right */
-        .circuit-left, .circuit-right {
-            position: absolute;
-            top: 0;
-            height: 100%;
-            width: 35%;
-            z-index: 1;
-            opacity: 0.55;
-            pointer-events: none;
-            background-repeat: no-repeat;
-            background-size: contain;
-        }
-        .circuit-left {
-            left: 0;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 800'%3E%3Cpath d='M0,150 Q100,150 150,200 T300,250' fill='none' stroke='%230284c7' stroke-width='2'/%3E%3Cpath d='M0,300 Q80,300 120,400 T250,500' fill='none' stroke='%230d9488' stroke-width='1.5'/%3E%3Cpath d='M0,450 Q150,450 200,300 T350,150' fill='none' stroke='%2338bdf8' stroke-width='2'/%3E%3Cpath d='M0,600 Q120,600 180,500 T300,400' fill='none' stroke='%230284c7' stroke-width='1.5'/%3E%3C/svg%3E");
-            background-position: left center;
-        }
-        .circuit-right {
-            right: 0;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 800'%3E%3Cpath d='M400,150 Q300,150 250,200 T100,250' fill='none' stroke='%230284c7' stroke-width='2'/%3E%3Cpath d='M400,300 Q320,300 280,400 T150,500' fill='none' stroke='%230d9488' stroke-width='1.5'/%3E%3Cpath d='M400,450 Q250,450 200,300 T50,150' fill='none' stroke='%2338bdf8' stroke-width='2'/%3E%3Cpath d='M400,600 Q280,600 220,500 T100,400' fill='none' stroke='%230284c7' stroke-width='1.5'/%3E%3C/svg%3E");
-            background-position: right center;
-        }
-
-        /* Login Card Box */
+        /* Neumorphic Login Card Style matching the exact reference */
         .login-card {
-            background: rgba(255, 255, 255, 0.92);
-            backdrop-filter: blur(10px);
+            background: #f0f4f8;
             padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(2, 132, 199, 0.15), 
-                        0 0 0 1px rgba(255, 255, 255, 0.8) inset;
+            border-radius: 24px;
+            box-shadow: 20px 20px 40px rgba(163, 177, 198, 0.5), 
+                        -20px -20px 40px rgba(255, 255, 255, 0.9),
+                        inset 1px 1px 2px rgba(255, 255, 255, 0.8);
             width: 100%;
             max-width: 420px;
             position: relative;
             z-index: 10;
+            border: 1px solid rgba(255, 255, 255, 0.7);
         }
 
         .logo-area {
@@ -79,11 +50,11 @@
             margin-bottom: 25px;
         }
 
-        .logo-area svg {
-            width: 36px;
-            height: 36px;
+        .logo-area svg.logo-icon {
+            width: 42px;
+            height: 42px;
             fill: #1e293b;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
         h2 {
@@ -100,7 +71,7 @@
             font-size: 12px;
             margin-top: 4px;
             margin-bottom: 25px;
-            letter-spacing: 0.3px;
+            letter-spacing: 0.5px;
         }
 
         .form-group {
@@ -131,19 +102,20 @@
         input[type="email"], input[type="password"] {
             width: 100%;
             padding: 12px 14px 12px 42px;
-            background: #f8fafc;
-            border: 1px solid #cbd5e1;
-            border-radius: 8px;
+            background: #e2e8f0;
+            border: none;
+            border-radius: 10px;
             font-size: 14px;
             color: #1e293b;
+            box-shadow: inset 3px 3px 6px rgba(163, 177, 198, 0.5), 
+                        inset -3px -3px 6px rgba(255, 255, 255, 0.9);
             transition: all 0.3s ease;
         }
 
         input:focus {
             outline: none;
-            border-color: #0284c7;
-            background: #ffffff;
-            box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+            box-shadow: inset 4px 4px 8px rgba(163, 177, 198, 0.7), 
+                        inset -4px -4px 8px rgba(255, 255, 255, 1);
         }
 
         .extra-options {
@@ -186,32 +158,56 @@
             background: linear-gradient(135deg, #0284c7, #0369a1);
             color: white;
             border: none;
-            border-radius: 10px;
+            border-radius: 12px;
             cursor: pointer;
             font-size: 15px;
             font-weight: 600;
-            box-shadow: 0 6px 15px rgba(2, 132, 199, 0.35);
+            box-shadow: 0 6px 18px rgba(2, 132, 199, 0.4);
             transition: all 0.3s ease;
         }
 
         button:hover {
             background: linear-gradient(135deg, #0369a1, #075985);
             transform: translateY(-1px);
-            box-shadow: 0 8px 20px rgba(2, 132, 199, 0.45);
+            box-shadow: 0 8px 22px rgba(2, 132, 199, 0.5);
         }
     </style>
 </head>
 <body>
 
-    <!-- Background Design Elements matching screenshot -->
-    <div class="bg-design"></div>
-    <div class="circuit-left"></div>
-    <div class="circuit-right"></div>
+    <!-- Detailed Neural Network & DNA Circuit Background graphics connecting to the login box -->
+    <svg class="bg-neural-network" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" preserveAspectRatio="none">
+        <!-- Left Side Neural / DNA branching lines -->
+        <g stroke="#0284c7" stroke-width="1.5" fill="none" opacity="0.6">
+            <path d="M0,200 Q200,200 350,350 T500,450" />
+            <path d="M0,350 Q150,350 280,450 T450,550" stroke="#0d9488" />
+            <path d="M0,500 Q220,500 380,480 T520,380" stroke="#38bdf8" />
+            <path d="M0,650 Q180,650 320,550 T480,480" />
+            <!-- Branching nodes/dots -->
+            <circle cx="150" cy="200" r="4" fill="#0284c7"/>
+            <circle cx="280" cy="300" r="3" fill="#0d9488"/>
+            <circle cx="220" cy="450" r="5" fill="#38bdf8"/>
+            <circle cx="380" cy="520" r="3" fill="#0284c7"/>
+        </g>
+
+        <!-- Right Side Neural / DNA branching lines -->
+        <g stroke="#0284c7" stroke-width="1.5" fill="none" opacity="0.6">
+            <path d="M1440,200 Q1240,200 1090,350 T940,450" />
+            <path d="M1440,350 Q1290,350 1160,450 T990,550" stroke="#0d9488" />
+            <path d="M1440,500 Q1220,500 1060,480 T920,380" stroke="#38bdf8" />
+            <path d="M1440,650 Q1260,650 1120,550 T960,480" />
+            <!-- Branching nodes/dots -->
+            <circle cx="1290" cy="200" r="4" fill="#0284c7"/>
+            <circle cx="1160" cy="300" r="3" fill="#0d9488"/>
+            <circle cx="1220" cy="450" r="5" fill="#38bdf8"/>
+            <circle cx="1060" cy="520" r="3" fill="#0284c7"/>
+        </g>
+    </svg>
 
     <div class="login-card">
         <div class="logo-area">
-            <!-- Medical Caduceus / Cross Icon -->
-            <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg>
+            <!-- Medical Cross / Caduceus Icon -->
+            <svg class="logo-icon" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg>
             <h2>Digi Janseva</h2>
             <div class="subtitle">Doctor Portal Secure Login</div>
         </div>
