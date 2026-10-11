@@ -8,35 +8,87 @@
         * { box-sizing: border-box; }
         body {
             font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-            background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+            background: #e2f2f5;
             color: #1e293b;
             margin: 0;
-            padding: 40px 20px;
+            padding: 30px 20px;
             min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
         }
+
+        /* Background Medical Circuit Lines (Matching Login & Dashboard) */
+        .bg-design {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0.65;
+            background-image: 
+                radial-gradient(circle at 10% 20%, #38bdf8 2px, transparent 2px),
+                radial-gradient(circle at 90% 80%, #0284c7 2px, transparent 2px),
+                radial-gradient(circle at 30% 90%, #0d9488 2px, transparent 2px),
+                radial-gradient(circle at 85% 15%, #0284c7 2px, transparent 2px);
+            background-size: 100px 100px;
+        }
+
+        .circuit-left, .circuit-right {
+            position: fixed;
+            top: 0;
+            height: 100%;
+            width: 35%;
+            z-index: 0;
+            opacity: 0.55;
+            pointer-events: none;
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+        .circuit-left {
+            left: 0;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 800'%3E%3Cpath d='M0,150 Q100,150 150,200 T300,250' fill='none' stroke='%230284c7' stroke-width='2'/%3E%3Cpath d='M0,300 Q80,300 120,400 T250,500' fill='none' stroke='%230d9488' stroke-width='1.5'/%3E%3Cpath d='M0,450 Q150,450 200,300 T350,150' fill='none' stroke='%2338bdf8' stroke-width='2'/%3E%3Cpath d='M0,600 Q120,600 180,500 T300,400' fill='none' stroke='%230284c7' stroke-width='1.5'/%3E%3C/svg%3E");
+            background-position: left center;
+        }
+        .circuit-right {
+            right: 0;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 800'%3E%3Cpath d='M400,150 Q300,150 250,200 T100,250' fill='none' stroke='%230284c7' stroke-width='2'/%3E%3Cpath d='M400,300 Q320,300 280,400 T150,500' fill='none' stroke='%230d9488' stroke-width='1.5'/%3E%3Cpath d='M400,450 Q250,450 200,300 T50,150' fill='none' stroke='%2338bdf8' stroke-width='2'/%3E%3Cpath d='M400,600 Q280,600 220,500 T100,400' fill='none' stroke='%230284c7' stroke-width='1.5'/%3E%3C/svg%3E");
+            background-position: right center;
+        }
+
         .container {
+            position: relative;
+            z-index: 10;
             max-width: 1050px;
             margin: 0 auto;
-            background: #ffffff;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
             padding: 40px;
             border-radius: 20px;
-            box-shadow: 0 20px 35px rgba(2, 132, 199, 0.1);
-            border: 1px solid #bae6fd;
+            box-shadow: 0 20px 40px rgba(2, 132, 199, 0.15), 
+                        0 0 0 1px rgba(255, 255, 255, 0.8) inset;
+            border: 1px solid rgba(255, 255, 255, 0.7);
         }
+
         h2 {
-            color: #0284c7;
+            color: #0f172a;
             margin-top: 0;
             margin-bottom: 25px;
             text-align: center;
-            font-size: 28px;
+            font-size: 26px;
+            font-weight: 700;
         }
+
         .section {
             margin-bottom: 30px;
             padding: 25px;
             background: #f8fafc;
             border-radius: 14px;
             border: 1px solid #e2e8f0;
+            box-shadow: inset 1px 1px 3px rgba(163, 177, 198, 0.1);
         }
+
         .section h3 {
             margin-top: 0;
             color: #0369a1;
@@ -45,6 +97,7 @@
             border-bottom: 2px solid #bae6fd;
             padding-bottom: 8px;
         }
+
         table {
             width: 100%;
             border-collapse: collapse;
@@ -54,20 +107,25 @@
             overflow: hidden;
             box-shadow: 0 4px 6px rgba(0,0,0,0.02);
         }
+
         th, td {
             text-align: left;
             padding: 14px 16px;
             border-bottom: 1px solid #e2e8f0;
             font-size: 14px;
         }
+
         th {
             background-color: #bae6fd;
             color: #0369a1;
             font-weight: 700;
         }
+
         tr:hover {
             background-color: #f1f5f9;
         }
+
+        /* Risk Level Badges */
         .badge {
             padding: 6px 12px;
             border-radius: 20px;
@@ -86,6 +144,7 @@
             align-items: center;
             margin-top: 30px;
         }
+
         button {
             padding: 12px 24px;
             background: linear-gradient(135deg, #0284c7, #0369a1);
@@ -98,22 +157,26 @@
             transition: all 0.3s;
             box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
         }
+
         button:hover {
-            transform: translateY(-2px);
+            transform: translateY(-1px);
             background: linear-gradient(135deg, #0369a1, #075985);
+            box-shadow: 0 6px 16px rgba(2, 132, 199, 0.4);
         }
+
         .back-btn {
             background: linear-gradient(135deg, #64748b, #475569);
             box-shadow: 0 4px 12px rgba(100, 116, 139, 0.3);
         }
+
         .video-btn {
             background: linear-gradient(135deg, #059669, #047857);
             box-shadow: 0 4px 12px rgba(5, 150, 105, 0.3);
             padding: 6px 12px;
             font-size: 12px;
         }
-        
-        /* Modal Popup */
+
+        /* Popup Modal CSS */
         .modal {
             display: none;
             position: fixed;
@@ -127,6 +190,7 @@
             justify-content: center;
             align-items: center;
         }
+
         .modal-content {
             background-color: white;
             padding: 35px;
@@ -135,10 +199,12 @@
             text-align: center;
             box-shadow: 0 25px 50px rgba(0,0,0,0.25);
         }
+
         .modal-content h3 {
             color: #0284c7;
             margin-top: 0;
         }
+
         .close-btn {
             background: linear-gradient(135deg, #dc2626, #b91c1c);
             margin-top: 15px;
@@ -150,10 +216,15 @@
 </head>
 <body>
 
+    <!-- Background Design Elements matching screenshot -->
+    <div class="bg-design"></div>
+    <div class="circuit-left"></div>
+    <div class="circuit-right"></div>
+
 <div class="container">
     <h2>Doctor & Patient Management Portal</h2>
     
-    <!-- Triage Section -->
+    <!-- Appointments & Patient Triage Section -->
     <div class="section">
         <h3>📅 Patient Appointments & AI Risk Triage</h3>
         <table>
@@ -192,7 +263,7 @@
         </table>
     </div>
 
-    <!-- Prescriptions -->
+    <!-- Reports & Prescriptions Section -->
     <div class="section">
         <h3>📋 Reports & Prescriptions</h3>
         <table>
@@ -215,7 +286,7 @@
         </table>
     </div>
 
-    <!-- Payment Records -->
+    <!-- Payment Status Section -->
     <div class="section">
         <h3>💳 Payment Records</h3>
         <table>
@@ -238,14 +309,14 @@
         </table>
     </div>
 
-    <!-- Navigation -->
+    <!-- Navigation Buttons -->
     <div class="btn-container">
-        <button class="back-btn" type="button" onclick="window.location.href='dashboard.html'">Back to Dashboard</button>
-        <button type="button">Add New Record</button>
+        <button class="back-btn" type="button" onclick="window.location.href='dashboard.html'">&larr; Back to Dashboard</button>
+        <button type="button">+ Add New Record</button>
     </div>
 </div>
 
-<!-- Video Consultation Modal -->
+<!-- Video Consultation Popup Modal -->
 <div id="videoModal" class="modal">
     <div class="modal-content">
         <h3>Video Consultation</h3>
